@@ -1,0 +1,16 @@
+#Solved using a hashmap and sorting.
+
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+
+        anagramMap = defaultdict(list)
+
+        for word in strs:
+            tempSorted = "".join(sorted(word))
+            anagramMap[tempSorted].append(word)
+
+        return list(anagramMap.values())
